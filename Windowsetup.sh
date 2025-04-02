@@ -3,12 +3,12 @@ sudo apt update -y
 sudo apt install apache2 ufw p7zip-full qemu-system-x86-64 -y
 sudo ufw allow 'VNC'
 sudo ufw status
-if [ -e "./Windows Server 2008 R2.qcow2" ]; then
+if [ -e "./XP.qcow2" ]; then
     echo "File exists"
 else
-    wget -O file.7z 'https://archive.org/download/windows-server-2008-r-2.7z/Windows%20Server%202008%20R2.7z'
-    7za x file.7z
-    rm -rf file.7z
+    wget -O XP.qcow2 'https://dl.dropboxusercontent.com/scl/fi/1otebde93u9emo7brtuc9/xp.qcow2?rlkey=7suq01uor2sdesqqt8umf6op1&st=nw3h0e9r&dl=1'
+   
+    
 fi
 if [ -e "./ngrok" ]; then
     echo "File exists"
@@ -24,9 +24,9 @@ echo "----------\/----------"
 echo "Please go to the following link to check if the generated address is working and connect using VNC: https://dashboard.ngrok.com/agents"
 echo "----------/\----------"
 sleep 5
-sudo qemu-system-x86_64 -cpu core2duo,+avx -usb -device usb-kbd -device usb-tablet -smp sockets=1,cores=4,threads=1 -m 512M -hda Windows Server 2008 R2.qcow2 -vga vmware -device ac97 -device e1000,netdev=n0 -netdev user,id=n0 -accel tcg,thread=multi,tb-size=2048 -vnc :0
+sudo qemu-system-x86_64 -cpu core2duo,+avx -usb -device usb-kbd -device usb-tablet -smp sockets=1,cores=4,threads=1 -m 512M -hda XP.qcow2 -vga vmware -device ac97 -device e1000,netdev=n0 -netdev user,id=n0 -accel tcg,thread=multi,tb-size=2048 -vnc :0
 clear
 echo "To run again, run the following command:"
 echo "----------\/----------"
-echo "rungrok="\$\(./ngrok tcp 5900\)" & sudo qemu-system-x86_64 -cpu core2duo,+avx -usb -device usb-kbd -device usb-tablet -smp sockets=1,cores=4,threads=1 -m 512M -hda Windows Server 2008 R2.qcow2 -vga vmware -device ac97 -device e1000,netdev=n0 -netdev user,id=n0 -accel tcg,thread=multi,tb-size=2048 -vnc :0"
+echo "rungrok="\$\(./ngrok tcp 5900\)" & sudo qemu-system-x86_64 -cpu core2duo,+avx -usb -device usb-kbd -device usb-tablet -smp sockets=1,cores=4,threads=1 -m 512M -hda XP.qcow2 -vga vmware -device ac97 -device e1000,netdev=n0 -netdev user,id=n0 -accel tcg,thread=multi,tb-size=2048 -vnc :0"
 echo "----------/\----------"
