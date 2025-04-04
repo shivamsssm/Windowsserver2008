@@ -6,7 +6,7 @@ sudo ufw status
 if [ -e "./win.qcow2" ]; then
     echo "File exists"
 else
-    wget -O win.qcow2 'https://dl.dropboxusercontent.com/scl/fi/1otebde93u9emo7brtuc9/xp.qcow2?rlkey=7suq01uor2sdesqqt8umf6op1&st=nw3h0e9r&dl=1'
+    wget -O win.qcow2 'https://dl.dropboxusercontent.com/scl/fi/6rq7lh1k73lkps4w1n0yw/Win10pro.qcow2?rlkey=tawfflc0mtfm8dq1n0emf26qs&st=askfm2of&dl=1'
    
     
 fi
